@@ -7,6 +7,7 @@
     <style>
         :root {
             --neon-color: #00f2ff;
+            --purple-glow: #bc13fe;
             --bg-color: #0a0a0a;
             --card-bg: #161616;
         }
@@ -31,14 +32,18 @@
             text-align: center;
         }
 
-        .profile-img {
+        /* تنسيق اللوجو الجديد مع التوهج المزدوج */
+        .logo-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 3px solid var(--neon-color);
-            box-shadow: 0 0 20px var(--neon-color);
+            box-shadow: 0 0 20px var(--neon-color), 0 0 40px var(--purple-glow);
             margin-bottom: 20px;
-            object-fit: cover;
+            object-fit: contain; /* للحفاظ على أبعاد اللوجو */
+            background-color: #000; /* خلفية سوداء للشعار */
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -46,6 +51,7 @@
             margin-bottom: 10px;
             text-shadow: 0 0 10px var(--neon-color);
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         p {
@@ -87,14 +93,14 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
-            .profile-img { width: 120px; height: 120px; }
+            .logo-img { width: 120px; height: 120px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://via.placeholder.com/150/00f2ff/000000?text=MIRAN" alt="Miran" class="profile-img">
+        <img src="assets/logo.png" alt="Miran Tech Logo" class="logo-img">
         
         <h1>MIRAN TECH HUB</h1>
         <div class="status-tag">System Online - Powered by Termux</div>
