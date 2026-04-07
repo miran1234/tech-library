@@ -3,7 +3,7 @@ import { initializeFirestore, memoryLocalCache } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVppMy8Lx1kxxcRo4d0hFC8DgRLw0MUKY", 
+  apiKey: "AIzaSyCVppMy8Lx1kxxcRo4d0hFC8DgRLw0MUKY",
   authDomain: "project-482075490159.firebaseapp.com",
   projectId: "project-482075490159",
   storageBucket: "project-482075490159.firebasestorage.app",
@@ -16,5 +16,6 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
+  useFetchStreams: false,
   localCache: memoryLocalCache()
 });
