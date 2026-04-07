@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { initializeFirestore, memoryLocalCache } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVppMy8Lx1kxxcRo4d0hFC8DgRLw0MUKY",
   authDomain: "project-482075490159.firebaseapp.com",
+  databaseURL: "https://project-482075490159-default-rtdb.firebaseio.com/",
   projectId: "project-482075490159",
   storageBucket: "project-482075490159.firebasestorage.app",
   messagingSenderId: "482075490159",
@@ -12,10 +12,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-export const auth = getAuth(app);
-export const db = initializeFirestore(app, {
-  experimentalForceLongPolling: true,
-  useFetchStreams: false,
-  localCache: memoryLocalCache()
-});
+export const db = getDatabase(app);
+export { ref, set };
