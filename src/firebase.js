@@ -1,20 +1,20 @@
 import { initializeApp } from "firebase/app";
-import { initializeFirestore, fb_initializeFirestore } from "firebase/firestore";
+import { initializeFirestore, memoryLocalCache } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVppMy8Lx1kxxcRo4d0hFC8DgRLw0MUKY",
-  authDomain: "mywebproject-ddb36.firebaseapp.com",
-  projectId: "mywebproject-ddb36",
-  storageBucket: "mywebproject-ddb36.firebasestorage.app",
+  apiKey: "AIzaSyCVppMy8Lx1kxxcRo4d0hFC8DgRLw0MUKY", 
+  authDomain: "project-482075490159.firebaseapp.com",
+  projectId: "project-482075490159",
+  storageBucket: "project-482075490159.firebasestorage.app",
   messagingSenderId: "482075490159",
-  appId: "1:482075490159:web:404929f2f9f8f5b9869a9a",
-  measurementId: "G-XV6WB5VCZG"
+  appId: "1:482075490159:web:404929f2f9f8f5b9869a9a"
 };
 
 const app = initializeApp(firebaseConfig);
 
-// هذا السطر هو السحر الذي سيتخطى حظر الشبكة
+export const auth = getAuth(app);
 export const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
-  useFetchStreams: false,
+  localCache: memoryLocalCache()
 });
